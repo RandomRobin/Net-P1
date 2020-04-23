@@ -75,7 +75,7 @@ namespace TicTacToeEngine
 
             this.cells = new List<Cell>();
 
-            for (int i = 1; i < 10; i++)
+            for (int i = 1; i < 11; i++)
             {
                 cells.Add(new Cell(i));
             }
@@ -85,14 +85,14 @@ namespace TicTacToeEngine
 
         public Boolean ChooseCell(int cell)
         {
-            
+
             //Checks if the choosen cells, is between 0-9 and the game status is valid.
             if ((cell >= 0 && cell < 9) && (status != GameStatus.Equal || status != GameStatus.PlayerOWins || status != GameStatus.PlayerXWins))
             {
-            
+
 
                 //Checks if the choosen cell is empty and if so, fills it with the correct players, otherwise returns false.
-                if (!(getACell(cell).getText() == "X") || (getACell(cell).getText() == "O"))
+                if (!(getACell(cell).getText() == "X") || (getACell(cell).getText() == "Y"))
                     if (this.status == GameStatus.PlayerXPlays)
                     {
                         getACell(cell).setText("X");
@@ -123,16 +123,16 @@ namespace TicTacToeEngine
                 }
 
 
-                //Checks if a player has won, by comparing the value of cells.
+                //Checks if a player has won
 
-                if (((getACell(0).getText() == getACell(1).getText()) && (getACell(0).getText() == getACell(2).getText()) && (getACell(0).getText() != null))
-                    || ((getACell(3).getText() == getACell(4).getText()) && (getACell(3).getText() == getACell(5).getText()) && (getACell(3).getText() != null))
-                    || ((getACell(6).getText() == getACell(7).getText()) && (getACell(6).getText() == getACell(8).getText()) && (getACell(6).getText() != null))
-                    || ((getACell(0).getText() == getACell(4).getText()) && (getACell(0).getText() == getACell(8).getText()) && (getACell(0).getText() != null))
-                    || ((getACell(2).getText() == getACell(4).getText()) && (getACell(2).getText() == getACell(6).getText()) && (getACell(2).getText() != null))
-                    || ((getACell(0).getText() == getACell(3).getText()) && (getACell(0).getText() == getACell(6).getText()) && (getACell(0).getText() != null))
-                    || ((getACell(1).getText() == getACell(4).getText()) && (getACell(1).getText() == getACell(7).getText()) && (getACell(1).getText() != null))
-                    || ((getACell(2).getText() == getACell(5).getText()) && (getACell(2).getText() == getACell(8).getText()) && (getACell(2).getText() != null)))
+                if (((getACell(0).getText() == getACell(1).getText()) && (getACell(0).getText() == getACell(2).getText()) && (getACell(0).getText() == "X" || getACell(0).getText() == "O"))
+                    || ((getACell(3).getText() == getACell(4).getText()) && (getACell(3).getText() == getACell(5).getText()) && (getACell(3).getText() == "X" || getACell(3).getText() == "O"))
+                    || ((getACell(6).getText() == getACell(7).getText()) && (getACell(6).getText() == getACell(8).getText()) && (getACell(6).getText() == "X" || getACell(6).getText() == "O"))
+                    || ((getACell(0).getText() == getACell(4).getText()) && (getACell(0).getText() == getACell(8).getText()) && (getACell(0).getText() == "X" || getACell(0).getText() == "O"))
+                    || ((getACell(2).getText() == getACell(4).getText()) && (getACell(2).getText() == getACell(6).getText()) && (getACell(2).getText() == "X" || getACell(2).getText() == "O"))
+                    || ((getACell(0).getText() == getACell(3).getText()) && (getACell(0).getText() == getACell(6).getText()) && (getACell(0).getText() == "X" || getACell(0).getText() == "O"))
+                    || ((getACell(1).getText() == getACell(4).getText()) && (getACell(1).getText() == getACell(7).getText()) && (getACell(1).getText() == "X" || getACell(1).getText() == "O"))
+                    || ((getACell(2).getText() == getACell(5).getText()) && (getACell(2).getText() == getACell(8).getText()) && (getACell(2).getText() == "X" || getACell(2).getText() == "O")))
                 {
                     if (this.status == GameStatus.PlayerXPlays)
                     {
@@ -149,12 +149,11 @@ namespace TicTacToeEngine
                 }
 
                 //Checks if all cells has either a X or O
-               
+
                 foreach (Cell a in getCells())
                 {
-                    if (!(a.getText() == "X") && !(a.getText() == "O"))
+                    if (!(a.getText() == "X") || (a.getText() == "O"))
                     {
-                        Console.WriteLine(a.getText());
                         return true;
                     }
                 }
@@ -165,7 +164,6 @@ namespace TicTacToeEngine
                 return true;
 
             }
-
             else
             {
                 return false;
