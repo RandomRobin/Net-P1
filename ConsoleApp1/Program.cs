@@ -16,70 +16,62 @@ namespace ConsoleApp1
             tic.Reset();
             Console.WriteLine("Type a number from 1-9, new or quit\nStatus:" + tic.getStatus().ToString());
 
-            while (quit is false){
+            while (quit is false) {
 
-                
                 Console.Write(tic.Board());
-               
 
+          
                 String input = Console.ReadLine();
 
-                if (input == "quit")
-                {
-                    Environment.Exit(0);
-                }
+                switch (input) {
+                    case "quit":
+                        Environment.Exit(0);
+                        break;
 
-               else  if (input == "new")
-                {
-                    tic.Reset();
-           
-                }
+                    case "new":
+                        tic.Reset();
+                        break;
 
-                else if (input == "1")
-                {
-                    tic.ChooseCell(0);
-                }
+                    case "1":
+                        tic.ChooseCell(0);
+                        break;
 
-                else if (input == "2")
-                {
-                    tic.ChooseCell(1);
-                }
+                    case "2":
+                        tic.ChooseCell(1);
+                        break;
 
-                else if (input == "3")
-                {
-                    tic.ChooseCell(2);
-                }
+                    case "3":
+                        tic.ChooseCell(2);
+                        break;
 
-                else if (input == "4")
-                {
-                    tic.ChooseCell(3);
-                }
+                    case "4":
+                        tic.ChooseCell(3);
+                        break;
 
-                else if (input == "5")
-                {
-                    tic.ChooseCell(4);
-                }
+                    case "5":
+                        tic.ChooseCell(4);
+                        break;
 
-               else if (input == "6")
-                {
-                    tic.ChooseCell(5);
-                }
+                    case "6":
+                        tic.ChooseCell(5);
+                        break;
 
-               else if (input == "7")
-                {
-                    tic.ChooseCell(6);
-                }
+                    case "7":
+                        tic.ChooseCell(6);
+                        break;
 
-                else if (input == "8")
-                {
-                    tic.ChooseCell(7);
-                }
+                    case "8":
+                        tic.ChooseCell(7);
+                        break;
 
-                else if (input == "9")
-                {
-                    tic.ChooseCell(8);
-                }
+                    case "9":
+                        tic.ChooseCell(8);
+                        break;
 
+                    default:
+                        Console.WriteLine("Invalid input, try again.");
+                        break;
+                }
 
                 Console.WriteLine("\nType a number from 1-9, new or quit\nStatus:" + tic.getStatus().ToString());
 

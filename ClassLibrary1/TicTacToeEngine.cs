@@ -92,7 +92,7 @@ namespace TicTacToeEngine
             
 
                 //Checks if the choosen cell is empty and if so, fills it with the correct players, otherwise returns false.
-                if (!(getACell(cell).getText() == "X") || (getACell(cell).getText() == "O"))
+                if (!getACell(cell).getText().Equals("X") && !getACell(cell).getText().Equals("O"))
                     if (this.status == GameStatus.PlayerXPlays)
                     {
                         getACell(cell).setText("X");
@@ -106,8 +106,15 @@ namespace TicTacToeEngine
 
                     else
                     {
+                        //Invalid status
                         return false;
+                    
                     }
+                else
+                {
+                    //Not empty cell
+                    return false;
+                }
 
 
                 //Switches the turn of the player.
@@ -154,7 +161,6 @@ namespace TicTacToeEngine
                 {
                     if (!(a.getText() == "X") && !(a.getText() == "O"))
                     {
-                        Console.WriteLine(a.getText());
                         return true;
                     }
                 }
