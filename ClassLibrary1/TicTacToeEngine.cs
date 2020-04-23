@@ -117,18 +117,6 @@ namespace TicTacToeEngine
                 }
 
 
-                //Switches the turn of the player.
-                if (this.status == GameStatus.PlayerXPlays)
-                {
-                    setStatusPlayerOPlays();
-
-                }
-
-                else if (this.status == GameStatus.PlayerOPlays)
-                {
-                    setStatusPlayerXPlays();
-                }
-
 
                 //Checks if a player has won, by comparing the value of cells.
 
@@ -143,20 +131,32 @@ namespace TicTacToeEngine
                 {
                     if (this.status == GameStatus.PlayerXPlays)
                     {
-                        setStatusPlayerOWins();
+                        setStatusPlayerXWins();
                         return true;
 
                     }
 
                     else if (this.status == GameStatus.PlayerOPlays)
                     {
-                        setStatusPlayerXWins();
+                        setStatusPlayerOWins();
                         return true;
                     }
                 }
 
+
+                //Switches the turn of the player.
+                if (this.status == GameStatus.PlayerXPlays)
+                {
+                    setStatusPlayerOPlays();
+
+                }
+
+                else if (this.status == GameStatus.PlayerOPlays)
+                {
+                    setStatusPlayerXPlays();
+                }
+
                 //Checks if all cells has either a X or O
-               
                 foreach (Cell a in getCells())
                 {
                     if (!(a.getText() == "X") && !(a.getText() == "O"))
@@ -164,7 +164,6 @@ namespace TicTacToeEngine
                         return true;
                     }
                 }
-
 
                 //"Jammer~! Niemand wint!"
                 setStatusEqual();
