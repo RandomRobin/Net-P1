@@ -60,6 +60,7 @@ namespace TicTacToeEngine
 
         public String Board()
         {
+            // Vervangen door /n
             var board = "-------------" + Environment.NewLine +
      "| " + cells[0].getText() + " | " + cells[1].getText() + " | " + cells[2].getText() + " |" + Environment.NewLine +
      "-------------" + Environment.NewLine +
